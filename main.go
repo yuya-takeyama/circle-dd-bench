@@ -14,7 +14,8 @@ import (
 const appName = "circle-dd-bench"
 
 type options struct {
-	Tags []string `short:"t" long:"tag" description:"Tag to send to Datadog with TAG:VALUE format"`
+	Tags        []string `short:"t" long:"tag" description:"Tag to send to Datadog with TAG:VALUE format"`
+	ShowVersion bool     `short:"v" long:"version" description:"Show version"`
 }
 
 var opts options
@@ -31,6 +32,11 @@ func main() {
 	if err != nil {
 		fmt.Print(err)
 		os.Exit(0)
+	}
+
+	if opts.ShowVersion {
+		fmt.Printf("%s v%s, build %s\n", appName, Version, GitCommit)
+		return
 	}
 
 	if len(args) == 0 {
