@@ -19,7 +19,7 @@ type options struct {
 
 var opts options
 
-var metricName = "test.takeyama.datadog.duration"
+var metricName = "circleci.benchmarks.command"
 var datadogClient = datadog.NewClient(os.Getenv("DATADOG_API_KEY"), "")
 
 func main() {
