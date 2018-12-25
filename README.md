@@ -15,3 +15,18 @@ $ circle-dd-bench [OPTIONS] -- COMMAND
 ### Environment Variables
 
 * `DATADOG_API_KEY`: Datadog API key
+
+## Installation
+
+### Docker
+
+```
+# In Dockerfile
+COPY --from=yuyat/circle-dd-bench /usr/local/bin/circle-dd-bench /usr/local/bin
+```
+
+### Build yorself
+
+```
+$ go get github.com/yuya-takeyama/guruguru-cache
+```
