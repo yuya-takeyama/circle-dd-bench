@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"strings"
 	"time"
 
 	flags "github.com/jessevdk/go-flags"
@@ -44,12 +45,14 @@ func main() {
 		os.Exit(0)
 	}
 
+	log.Printf("%s: start running the command: %s", appName, strings.Join(args, " "))
+
 	elapsed, err := runCommand(args)
 	if err != nil {
 		log.Fatalf("%s: failed to run command: %s", appName, err)
 	}
 
-	log.Printf("%s: took %.0f seconds", appName, *elapsed)
+	log.Printf("%s: took %.0f msec", appName, *elapsed)
 	metrics := createMetrics(elapsed, opts)
 
 	err = datadogClient.PostMetrics(metrics)
