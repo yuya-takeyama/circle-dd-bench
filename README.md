@@ -28,5 +28,5 @@ COPY --from=yuyat/circle-dd-bench /usr/local/bin/circle-dd-bench /usr/local/bin
 ### Build yorself
 
 ```
-$ go get github.com/yuya-takeyama/guruguru-cache
+$ go get github.com/yuya-takeyama/circle-dd-bench
 ```
