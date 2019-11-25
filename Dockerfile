@@ -7,7 +7,7 @@ COPY . /go/src/github.com/yuya-takeyama/circle-dd-bench
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"'
 
-FROM alpine:3.8
+FROM alpine:3.10.3
 
 COPY --from=builder /go/src/github.com/yuya-takeyama/circle-dd-bench/circle-dd-bench /usr/local/bin
 
